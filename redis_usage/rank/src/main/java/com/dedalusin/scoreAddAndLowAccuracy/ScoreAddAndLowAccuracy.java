@@ -3,7 +3,6 @@ package com.dedalusin.scoreAddAndLowAccuracy;
 import com.alibaba.fastjson.JSON;
 import com.dedalusin.RedisRankService;
 import com.dedalusin.model.RankModel;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import redis.clients.jedis.*;
 
 import java.util.List;
@@ -18,6 +17,7 @@ import static java.util.concurrent.TimeUnit.DAYS;
 public class ScoreAddAndLowAccuracy implements RedisRankService {
     @Override
     public void updateRankUserData(RankModel rankModel) {
+        // 这些jedis的构造方法可以自然提取出去，现在主要关注场景，就随便copy下
         System.out.println("---------update------------");
         JedisPoolConfig config = new JedisPoolConfig();
         config.setMaxIdle(8);
